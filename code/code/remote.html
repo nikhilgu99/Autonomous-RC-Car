@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- 
+Group 12 - Alex, Justin + Nikhil
+Quest 4
+our html file send messages to either start or stop based on button pressed
+sends using socket io => node.js
+-->
+<script src="/socket.io/socket.io.js"></script>
+
+</head>
+<body>
+<h1 align= "center" style="background-color:black; color:white; font-size:40px">Quest 4 - Team 12</h1>
+<div style="text-align:center;">
+<button onclick = "start()"style="height:75px;width:125px;background-color: #369EAD"> <span style="font-size: 24px; color:white "> Start </span></button>  
+<br/>
+<br/>
+<br/>
+<button onclick="stop()" align = "center"style="height:75px;width:125px;background-color: #C24642"> <span style="font-size: 24px; color:white"> Stop </span></button>  	
+</div>
+<script>
+var socket = io();
+
+	function start(){ //sends start message
+		socket.emit('start', {'start' :"1"});
+	}
+</script>
+
+<script>
+	function stop(){ //sends stop message
+		socket.emit('stop', {'stop' :"1"});		
+	}
+</script>
+
+</body>
+
+</html>
